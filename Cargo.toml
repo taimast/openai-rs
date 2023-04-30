@@ -4,7 +4,7 @@ members = [
     "aiochatgpt",
 ]
 
-
+[workspace.package]
 license = "MIT"
 homepage = "https://github.com/taimast/openai-rs"
 repository = "https://github.com/taimast/openai-rs"
