@@ -1,7 +1,6 @@
 use std::error::Error;
 use futures::{StreamExt, TryStreamExt};
-
-use chatgpt::OpenAIRequest;
+use aiochatgpt::{OpenAIClient, OpenAIRequest};
 
 type DynResult<T> = Result<T, Box<dyn Error>>;
 
@@ -10,7 +9,7 @@ type DynResult<T> = Result<T, Box<dyn Error>>;
 #[tokio::main]
 async fn main() -> DynResult<()> {
     const OPENAI_API_KEY: &str = "<OPENAI_API_KEY>";
-    let client = chatgpt::OpenAIClient::new(OPENAI_API_KEY);
+    let client = OpenAIClient::new(OPENAI_API_KEY);
     let mut request = OpenAIRequest::default();
     request.system_message("You are a human".to_string());
     request.user_message("Hello, how are you? Tell more about you".to_string());
